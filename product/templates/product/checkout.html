@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .card {
+            margin: 15px 0;
+        }
+        .whatsapp-logo {
+            width: 100px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ listing.land.title_deed }}</h5>
+            <img src="{{ listing.land.image.url }}" class="card-img-top mb-3" alt="Land image">
+            <p class="card-text"><strong>Price:</strong> ksh. {{ listing.land.price }}</p>
+            <p class="card-text"><strong>Location:</strong> {{ listing.land.location }}</p>
+            <p class="card-text"><strong>County:</strong> {{ listing.land.county }}</p>
+            <p class="card-text"><strong>Size:</strong> {{ listing.land.size }}</p>
+            <p class="card-text">{{ listing.land.description }}</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp logo">
+            <p class="card-text">Contact the seller via WhatsApp:</p>
+            <p class="card-text"><strong>Full Name:</strong> {{ seller_profile.full_names }}</p>
+            <p class="card-text"><strong>WhatsApp Number:</strong> <a href="https://wa.me/{{ seller_profile.whats_number }}">{{ seller_profile.whats_number }}</a></p>
+            <p class="card-text"><strong>Address:</strong> {{ seller_profile.address }}</p>
+            <p class="card-text"><strong>County:</strong> {{ seller_profile.county }}</p>
+            <hr>
+            <p style='text-align:center;' class="text-muted">Disclaimer: Always keep a receipt of the communication between the seller and you for future reference.</p>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

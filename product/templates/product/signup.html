@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 90%;
+            text-align: center;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1><i class="fas fa-user"></i> Sign Up</h1>
+        {% if message %}
+        <p class="error-message">{{ message }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <label for="full_names">Full Names:</label>
+            <input type="text" id="full_names" name="full_names" required><br>
+            <label for="whats_number">WhatsApp Number:</label>
+            <input type="text" id="whats_number" name="whats_number" required><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br>
+            <label for="county">County:</label>
+            <input type="text" id="county" name="county" required><br>
+            <button type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

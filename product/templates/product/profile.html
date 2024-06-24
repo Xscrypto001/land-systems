@@ -1,0 +1,228 @@
+{% extends "product/base.html" %}
+
+{% block title %}Dashboard - LAND MARKETPLACE AND VERIFICATION PLATFORM{% endblock %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        .profile {
+            width: 100%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-photo {
+            float: left;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome {
+            margin-left: 120px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .edit-profile {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-decoration: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .edit-profile:hover {
+            background-color: #2486c1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        @media (max-width: 767px) {
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .welcome {
+                font-size: 18px;
+            }
+
+            .edit-profile {
+                font-size: 16px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        .user-icon {
+            font-size: 48px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        .owned-lands {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .land-item {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .land-title {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if user_profile.avatar %}
+            <p style="margin-left:25px;">Avatar: <img src="{{ user_profile.avatar.url }}" alt="User Avatar"></p>
+        {% else %}
+            <p style="margin-left:25px;"><i class="fas fa-user user-icon"></i></p>
+        {% endif %}
+        <br>
+
+        
+        <div class="welcome">&nbsp;&nbsp;Welcome, {{ user_profile.full_names }}</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="nav-link" href="{% url 'add_land' %}" class="edit-profile"><i style="color:blue;" class="fas fa-pen">&nbsp;ADD land</i></a>
+        <br><br>
+        <br><br>
+        <div class="card">
+            <div class="card-title">Profile Information<a href="#">&nbsp;&nbsp;</a></div>
+            <div class="card">
+                <table class="table">
+                    <tr>
+                        <th>Full Names</th>
+                        <th>WhatsApp Contact</th>
+                        <th>Address</th>
+                        <th>County</th>
+                    </tr>
+                    <tr>
+                        <td>{{ user_profile.full_names }}</td>
+                        <td>{{ user_profile.whats_number }}</td>
+                        <td>{{ user_profile.address }}</td>
+                        <td>{{ user_profile.county }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Your Listings</div>
+            <ul class="list-group">
+
+                <a class="nav-link" href="{% url 'add_listing' %}" class="edit-profile"><i style="color:blue;" class="fas fa-pen">&nbsp;List Land</i></a>
+                {% for listing in user_listings %}
+                <li class="list-group-item">
+                    <strong>{{ listing.land.title_deed }}</strong> - ${{ listing.land.price }}<br>
+                    <small>Created on {{ listing.created_at }}</small>
+                </li>
+                {% empty %}
+                <li class="list-group-item">No listings created yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">Your Transactions</div>
+            <ul class="list-group">
+                {% for transaction in user_transactions %}
+                <li class="list-group-item">
+                    <strong>Land:</strong> {{ transaction.land.title_deed }}<br>
+                    <strong>Price:</strong> ksh .{{ transaction.price }}<br>
+                    <strong>Date:</strong> {{ transaction.transaction_date }}<br>
+                    <strong>Role:</strong> {% if transaction.buyer == user_profile %} Buyer {% else %} Seller {% endif %}
+                </li>
+                {% empty %}
+                <li class="list-group-item">No transactions yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <h2><i class="fas fa-landmark"></i> Owned Lands</h2>
+        <ul class="owned-lands">
+            {% for land in owned_lands %}
+            <li class="land-item">
+                <h3 class="land-title">{{ land.title_deed }}</h3>
+                <p><i class="fas fa-dollar-sign"></i> Price: {{ land.price }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> Location: {{ land.location }}</p>
+                <p><i class="fas fa-expand"></i> Size: {{ land.size }}</p>
+                <p><i class="fas fa-info-circle"></i> Description: {{ land.description }}</p>
+            </li>
+            {% empty %}
+            <li>No lands listed by you yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
+{% endblock %}

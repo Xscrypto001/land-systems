@@ -1,0 +1,55 @@
+{% extends "product/base.html" %}
+
+{% block title %}Land Listings - LAND MARKETPLACE AND VERIFICATION PLATFORM{% endblock %}
+{% load static %}
+{% block content %}
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            margin: 15px;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        a{
+
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    
+    <div class="row">
+        {% for listing in listings %}
+            <div class="col-md-4">
+                <div class="card">
+                    <a style='text-decoration:none;' href="{% url 'checkout'  listing.id %}">
+                  <!--  <img src="{{ listing.land.image.url }}" class="card-img-top" alt="Land image"> -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ listing.land.title_deed }}</h5>
+                        <p class="card-text"><strong>Price:</strong> Ksh. {{ listing.land.price }}</p>
+                        <p class="card-text"><strong>Location:</strong> {{ listing.land.location }}</p>
+                        <p class="card-text"><strong>County:</strong> {{ listing.land.county }}</p>
+                        <p class="card-text"><strong>Size:</strong> {{ listing.land.size }}</p>
+                        <p class="card-text">{{ listing.land.description|truncatewords:20 }}</p>
+                        <p class="card-text"><small class="text-muted">Listed by {{ listing.created_by.username }} on {{ listing.created_at }}</small></p></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock %}
+
+
+

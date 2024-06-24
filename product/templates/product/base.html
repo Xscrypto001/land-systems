@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+{% load static %}
+
+<head>
+        <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+<style>
+
+body {
+  font-family: 'Lato', sans-serif;
+  width:100%;
+}
+
+.ham{
+display:none;
+margin-top:30px;
+margin-right:25px;
+}
+.nav-menu{
+
+color:green;
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  z-index:3900;
+  position:absolute;
+  top: 0;
+  left: 0;
+
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  font-size:10px;
+}
+
+.overlay-content {
+ 
+ z-index:3900;
+ position:absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.overlay a {
+  margin-top:0;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: white;
+}
+
+.overlay .closebtn {
+  float:right;
+  margin-top: 25px;
+  margin-right: 25px;
+  font-size: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 25px;
+  right: 35px;
+  
+display: block;
+}
+.ham{
+display:block;
+}
+
+}
+nav{
+
+color:green;
+
+}
+
+.badge {
+  margin-bottom:0px;
+  margin-top:80px;
+  padding-left: 0px;
+  padding-top: 10px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+a:hover{
+
+color:white;
+
+
+}
+#lblCartCount {
+    font-size: 22px;
+    background: white;
+    color: black;
+    padding: 0px 0px;
+    vertical-align: top;
+    margin-left: 0px;
+    margin-right:0px;
+    margin-bottom:0;    
+}
+a:hover{
+
+
+
+  color:white;
+  }
+  
+  .berry{
+  color:black;
+  
+  font-size:20px;
+  margin-left:0;
+  
+  }
+  p{
+  
+  
+  color:green;
+  
+  }
+  .business-name {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          margin-bottom:0;
+          text-align: left;
+          margin-top:0;
+          color:black;
+          font-size: 50px;
+          font-weight: bold;
+          line-height: 1.2;
+          
+  
+        }
+  ul{
+  
+  
+  color:green;
+  
+  }
+  
+  li a{
+  
+  color:green;
+  text-decoration: none;
+  
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav li {
+    color:green;
+    margin-right: 20px;
+  }
+  
+  .cart {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+   color:green;
+  }
+  
+  .login-signup {
+    background-color: orange;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 0px;
+  }
+  
+  .learn-more {
+    display: inline-block;
+   margin-top:26px;;
+   background-color: orange;
+  
+  }
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+  
+    display: flex;
+    justify-content: space-between;
+    padding:1px;
+    background-color: white;
+    top:0;
+    color:green;
+    margin-top:15px;
+    margin-bottom:0px;
+  }
+  
+  .logo {
+    margin-right: 20px;
+    margin-top:5x;
+  }
+  p{
+  
+  color:black;
+  
+  }
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+  }
+  
+  .header-m {
+      background-color: white;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+  }
+  
+  .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+  }
+  
+  .header-text {
+      width: 50%;
+      text-align: left;
+  }
+  .black-text {
+      color: black;
+      font-size: 46px;
+      margin: 0;
+      font-weight:500;
+      margin-top:0;
+  }
+  
+  .green-text {
+      color: #4CAF50;
+      font-size: 34px;
+      margin-bottom: 0;
+  }
+  
+  .orange-text {
+      color: #FFA500;
+      font-size: 28px;
+      top-margin: px;
+      bottom-margin:px;
+  }
+  
+  .image-wrapper {
+      height:50%;
+      width: 50%;
+      text-align: right;
+  }
+  
+  
+  #cart{
+  
+  margin-right:20px;
+  margin-top:10px;
+  margin-bottom:0;
+  }
+  .welcome-text {
+  
+  }
+  
+  .learn-more {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 15px;
+  }
+  
+  @media (max-width: 768px) {
+      .header-content {
+          flex-direction: column;
+          text-align: center;
+      }
+  
+      .header-text {
+          width: 100%;
+      }
+  
+      .image-wrapper {
+          display:none;
+      }
+  
+  }
+  
+  
+  @media (max-width: 768px) {
+      .header-content {
+          flex-direction: column;
+          text-align: center;
+           background-image:url("Grocery.jpg");
+  
+   }
+  .login-signup{
+  
+  font-size:10px;
+  padding: 8px 12px;
+  
+  }
+  .business-name{
+  
+  margin-top:0;
+  
+  }
+  header{
+  
+  background-color:white;
+  
+  }
+  .welcome-text p{
+  margin-top:10px;
+  margin-bottom:0;
+  
+  }.learn-more{
+  margin-top:20px;
+  }
+  .header-m{
+  margin-top:0px;
+  
+  }
+  .cart{
+  
+  margin-right:0;
+  
+  }
+  .logo{
+  
+  margin-left:0;
+  
+  }
+      .header-text {
+          width: 100%;
+      }
+  
+      .image-wrapper {
+          width: 100%;
+      }
+   nav{
+  
+   display:none;
+  
+  }
+  }
+  .main-content {
+      text-align: center;
+      padding: 40px 0;
+  }
+  
+  .centered-text {
+      font-family: 'cursive', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+  }
+  
+  .image-grid {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+  
+  .image-item {
+      text-align: center;
+      margin: 20px;
+      animation: slideFadeIn 3s ease-in-out 1s both;
+  }
+  
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  .additional-text {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+  }
+  
+  .additional-item {
+      text-align: center;
+      margin: 20px;
+      animation: slideFadeIn 2s ease-in-out 0.5s both;
+  }
+  
+  @keyframes slideFadeIn {
+      0% {
+          transform: translateX(100px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateX(0);
+          opacity: 1;
+      }
+  }/* Add styles for the new content */
+  .automation-service {
+      text-align: center;
+      margin: 40px 0;
+  }
+  
+  .subscription-images {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+  }
+  
+  .subscription-item {
+      text-align: center;
+      margin: 20px;
+      animation: slideFadeIn 2s ease-in-out 0.5s both;
+  }
+  /* Your existing styles as previously defined */
+  
+  /* Add styles for the new content */
+  .closing-section {
+      text-align: center;
+      padding: 40px 0;
+      background-color: #f5f5f5;
+  }
+  
+  .closing-section h3 {
+      font-size: 24px;
+  }
+  
+  .closing-section p {
+      font-size: 18px;
+      margin: 20px 0;
+  }
+  
+  .social-media-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .social-media-icons a {
+      margin: 0 10px;
+      font-size: 24px;
+      color: #0077B5; /* Adjust the color to match your design */
+      text-decoration: none;
+      transition: color 0.2s;
+  }
+  
+  .social-media-icons a:hover {
+      color: #00548B; /* Adjust the hover color as desired */
+  }
+  
+  /* You can add your own social media icons and links within the .social-media-icons element. */
+  
+  
+  /* You can adjust font sizes and add animations as desired */
+  /* Your existing styles as previously defined */
+  
+  h2{
+      font-family: 'cursive', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+  }
+  footer .content .media-icons a{
+    font-size: 16px;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 5px;
+    border: 2px solid #222222;
+    margin: 30px 5px 0 0;
+    transition: all 0.3s ease;
+  }
+  .content .media-icons a:hover{
+    border-color: #eb2f06;
+  }
+  footer .bottom{
+    width: 100%;
+    text-align: right;
+    color: #d9d9d9;
+    padding: 0 40px 5px 0;
+  }
+  footer .bottom a{
+    color: #eb2f06;
+  }
+  footer a{
+    transition: all 0.3s ease;
+  }
+  footer a:hover{
+    color: #eb2f06;
+  }
+  @media (max-width:1100px) {
+    footer .content .middle{
+      padding-left: 50px;
+  
+  
+  }
+  }
+  @media (max-width:950px){
+    footer .content .box{
+      width: 50%;
+    } 
+    
+    
+    .content .right{
+      margin-top: 40px;
+    }
+  }
+  @media (max-width:560px){
+    footer{
+      position: relative;
+    }
+    footer .content .box{
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom:0;
+    }
+    footer .content .middle{
+      padding-left: 0;
+    }
+  }
+</style>
+<link rel="stylesheet" href="{% static 'product/style.css' %}">
+    </head>
+
+   <body>
+      
+
+<header>
+    
+
+
+  
+
+      
+
+    </div>                      
+
+
+                  
+    
+<div style="margin-left:50px;margin-top:12px;" class="logo"><a href="{% url 'index' %}">
+<img src="{% static 'product/images/Amaze-logo.png' %}" alt="logo" height="50" width="60">
+
+</a>
+
+</div>
+
+
+<nav>
+
+
+      <ul style="margin-left:30px;margin-top:12px;color:green;" class="nav-menu" >
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'land_listings' %}">Lands</a></li>
+        <li>        <a href="{% url 'about' %}" >About Us</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+    <div class="cart">
+
+
+
+
+
+
+     {% if user.is_authenticated %}
+    <a style="color:black;margin-right:35px;margin-bottom:25px;text-decoration:none;" href="{% url 'profile' %}">profile</a>	
+{% else %}
+    <a   style='text-decoration:none;' href="{% url 'login' %}" class="login-signup">Login/Sign Up</a>
+{% endif %}
+
+
+
+<span style="font-size:30px;cursor:pointer;float:right;right:10px;" class="ham"  onclick="openNav()">&#9776;</span>
+    </div>
+ 
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'land_listings' %}" >Lands</a>
+        <a href="{% url 'about' %}" >About Us</a>
+
+
+
+{% if user.is_authenticated%}
+
+<a href="{% url 'profile' %}" ><i class="fas fa-user"></i>&nbsp;&nbsp;Profile</a>
+
+   
+
+
+{% endif %}
+
+  </div>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "70%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+     </header>
+      {%block content%}{%endblock%}
+
+
+
+
+ 
+   
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+
+
+{% extends "product/base.html" %}
+
+{% block title %} Berry Amaze- LAND MARKETPLACE {% endblock %}
+
+
+
+
+{% load static %}
+{% block content %}
+
+<style>
+    /* {
+
+        margin: 0;
+    
+        padding: 0;
+    
+        box-sizing: border-box;
+    }
+     Global Styles 
+    body {
+    
+        font-family: Arial, sans-serif;
+    }
+    
+    .logo {
+    
+        font-size: 1.5rem;
+    
+        font-weight: bold;
+    
+        color: #40b736;
+    }
+    
+    .nav-links {
+    
+        list-style: none;
+    
+        display: flex;
+    }
+    
+    .nav-links li {
+    
+        margin-right: 20px;
+    }
+    
+    .nav-links a {
+    
+        color: rgb(0, 0, 0);
+    
+        padding: 10px;
+    
+        font-weight: bold;
+                                                                                                             text-decoration: none;
+    }
+    
+    .nav-links a:hover {
+    
+        background-color: #40b736;
+    
+        border-radius: 4px;
+    
+        color: white;
+    }
+    
+    About Section */
+    /* About Section */
+    .about {
+        margin-top:10px;
+        background: rgb(224, 251, 222);
+    
+        background: linear-gradient(360deg, rgb(245, 255, 245) 0%, rgb(173, 252, 163) 100%);
+    
+        padding: 100px 0 20px 0;
+    
+        text-align: center;
+    }
+    
+    
+    .about h1 {
+        color:orange;
+        font-size: 2.5rem;
+    
+        margin-bottom: 20px;
+    }
+    
+    .about p {
+    
+        font-size: 1rem;
+    
+        color: #323030;
+    
+        max-width: 800px;
+    
+        margin: 0 auto;
+    }
+    
+    .about-info {
+    
+        margin: 2rem 2rem;
+    
+        display: flex;
+    
+        align-items: center;
+    
+        justify-content: center;
+    
+        text-align: left;
+    }
+    
+    .about-img {
+    
+        width: 20rem;
+    
+        height: 20rem;
+    
+    }
+    
+    .about-img img {
+    
+        width: 100%;
+    
+        height: 100%;
+    
+        border-radius: 5px;
+    
+        object-fit: contain;
+    }
+    
+    .about-info p {
+    
+        font-size: 1.3rem;
+    
+        margin: 0 2rem;
+    
+        text-align: justify;
+    }
+    
+    button {
+    
+        border: none;
+    
+        outline: 0;
+    
+        padding: 10px;
+    
+        margin: 2rem;
+    
+        font-size: 1rem;
+    
+        color: white;
+    
+        background-color: #40b736;
+    
+        text-align: center;
+    
+        cursor: pointer;
+    
+        width: 15rem;
+    
+        border-radius: 4px;
+    }
+    
+    button:hover {
+    
+        background-color: #1f9405;
+    }
+    
+    /* Team Section */
+    .team {
+    
+        padding: 30px 0;
+    
+        text-align: center;
+    }
+    
+    
+    .team h1 {
+    
+        font-size: 2.5rem;
+    
+        margin-bottom: 20px;
+    }
+    
+    .team-cards {
+    
+        display: flex;
+    
+        flex-wrap: wrap;
+    
+        justify-content: center;
+    
+        gap: 15px;
+    
+        margin-top: 20px;
+    }
+    @media (max-width: 768px) {
+    
+        
+    
+    
+        .logo {
+    
+            text-align: center;
+    
+        }
+    
+    
+        
+    
+    
+        .nav-links li {
+    
+            margin-right: 0;
+    
+        }
+    
+    
+        .about h1 {
+    
+            font-size: 2rem;
+    
+        }
+    
+    
+        .about p {
+    
+            font-size: 0.9rem;
+    
+        }
+    
+    
+        .about-info {
+    
+            flex-direction: column;
+    
+            text-align: center;
+    
+        }
+    
+    
+        .about-img {
+    
+            width: 60%;
+    
+            height: 60%;
+    
+            margin-bottom: 1rem;
+    
+        }
+    
+    
+        .about-info p {
+    
+            margin: 1rem 2rem;
+    
+        }
+    
+    
+        .about-info button {
+    
+            margin: 1rem 2rem;
+    
+            width: 10rem;
+    
+        }
+    
+    
+        .team {
+    
+            margin: 0 1rem;
+    
+        }
+    }
+    .about-info h{
+    font-size:28px;
+    color:orange;
+    
+    }
+    
+
+
+</style>
+
+<section style="margin-top:30px;" class="about">
+
+        <h1>About Us</h1>
+
+        <p style="font-weight: bold;font-size:29px;">BerryAmaze LAND MARKETPLACE</p>
+
+        <div class="about-info">
+
+            <div class="about-img">
+
+                <img src="{% static 'product/images/Amaze-logo.png'%}" alt="logo">
+
+            </div>
+
+            <div>
+
+     <p>
+
+
+
+At BerryAmaze, we've leveraged cutting-edge technology and a passion for
+seamless experiences to create a Land Marketplace platform like no other. Our journey began
+with a simple question: "How can we make Land listing more convenient and efficient for everyone?"
+
+
+
+</p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+<div class="about-info">
+  <h> Our Mission</h>
+<p > Empowering Your Lifestyle: Our mission is to empower your lifestyle
+ by providing a stress-free, time-saving, and
+environmentally friendly Land Listing  solution. We believe in
+ making your life easier.
+</p>
+</div>
+
+<div class="about-info">
+  <h> Our Vision</h>
+<p>
+A World of Effortless Convenience: Our vision is to create a
+world where Land Marketplace is no longer a
+chore. We envision a future where our automatic
+grocery delivery system becomes an integral part of your
+daily routine, freeing you to focus on what truly matters.</p>
+</div>
+<div class="about-info">
+<h>Our Commitment</h>
+
+<p>We are committed to providing:<br>
+
+• Quality Selection: We carefully curate a wide range of buyers and sellers  to meet your every need.<br><br>
+
+
+
+• Customer Satisfaction: Your satisfaction is our top priority. We're here to make your life easier.</p>
+</div>
+</section>
+
+
+
+{% endblock %}

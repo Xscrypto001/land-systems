@@ -1,0 +1,71 @@
+{% extends "product/base.html" %}
+
+{% block title %}Add New Land - LAND MARKETPLACE AND VERIFICATION PLATFORM{% endblock %}
+{% load static %}
+{% block content %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .form-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #28a745;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h1 {
+        color: #28a745;
+        margin-bottom: 20px;
+    }
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+</style>
+<div class="container">
+    <div class="form-container">
+        <h1><i class="fas fa-plus-circle"></i> Add New Land</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title_deed">Title Deed</label>
+                <input type="text" class="form-control" id="title_deed" name="title_deed" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price (Ksh)</label>
+                <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="location" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="county">County</label>
+                <input type="text" class="form-control" id="county" name="county" required>
+            </div>
+            <div class="form-group">
+                <label for="size">Size</label>
+                <input type="text" class="form-control" id="size" name="size" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Add Land</button>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
